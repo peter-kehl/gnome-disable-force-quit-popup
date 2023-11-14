@@ -15,12 +15,16 @@
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
- * Original Author: fmuellner@gnome.org
+ * Previous Authors: fmuellner@gnome.org, kingodz@gmail.com
  */
 
-const { GLib, GObject, Meta } = imports.gi;
+//const { GLib, GObject, Meta } = imports.gi;
+import GLib from 'gi://GLib';
+import GObject from 'gi://GObject';
+import Meta from 'gi://Meta';
 
-const CloseDialog = imports.ui.closeDialog;
+//const CloseDialog = imports.ui.closeDialog;
+import CloseDialog from "resource:///org/gnome/shell/ui/closeDialog.js";
 
 let DisableCloseDialog = GObject.registerClass({
     Implements: [ Meta.CloseDialog ],
@@ -68,3 +72,10 @@ class Extension {
 function init() {
     return new Extension();
 }
+
+// Neither of the following works:
+//
+// export DisableCloseDialog;
+// export default DisableCloseDialog;
+// export default class DisableCloseDialog;
+
